@@ -52,9 +52,19 @@ section {
 
 /* card style */
 
+.cards-list {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow-x: auto;
+}
+
 .card {
     width: 10.9375rem;
     font-size: .75rem;
+    flex: 0 0 auto;         
+    display: flex;          
+    flex-direction: column;
 }
 
 .card-image {
@@ -69,4 +79,12 @@ section {
 
 .card-star {
     height: .875rem;
+}
+.card-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-price {
+    margin-top: auto;
 }
