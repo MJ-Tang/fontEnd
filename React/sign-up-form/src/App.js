@@ -3,27 +3,40 @@ import React from 'react';
 
 function App() {
 
-  function handleSubmit(e) {
-    e.preventDefault()
-  }
+  
   const [formData, setFormData] = React.useState({
     email: "",
     password: "",
-    confirmPassword: ""
+    confirmPassword: "",
+    joinNewsLetter: false
   })
   
-  console.log(formData);
+  
 
   function handleChange(e) {
-    console.log(e);
-    const {name, value} = e.target
-    setFormData(prevFormData => {
-      return {
-        ...prevFormData,
-        [name]: value
-      }
-    })
+    // console.log(e);
+    const {name, value, type, checked} = e.target
+    setFormData(prevFormData => ({
+      ...prevFormData,
+      [name]: type === "checkbox" ? checked : value
+    }))
   }
+  console.log(formData);
+
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    if(formData.password === formData.confirmPassword) {
+      console.log("Successfully signed up");
+    } else {
+      console.log("Passwords do not match");
+    }
+
+    if (formData.joinNewsLetter) {
+      console.log("Thanks for signing up for our newsletter!");
+    }
+  }
+
 
   return (
     <div className="form-container">
@@ -35,6 +48,7 @@ function App() {
             className='form-input'
             onChange={handleChange}
             name="email"
+            value={formData.email}
         />
 
         <input 
@@ -43,6 +57,7 @@ function App() {
             className='form-input'
             onChange={handleChange}
             name="password"
+            value={formData.password}
         />
 
         <input 
@@ -51,12 +66,16 @@ function App() {
             className='form-input'
             onChange={handleChange}
             name="confirmPassword"
+            value={formData.confirmPassword}
         />
 
         <div className='form-marketing'>
             <input 
                 id='okayToEmail'
                 type="checkbox" 
+                name='joinNewsLetter'
+                onChange={handleChange}
+                checked={formData.joinNewsLetter}
             />
 
             <label htmlFor="okayToEmail">I want to join the newsletter</label>
