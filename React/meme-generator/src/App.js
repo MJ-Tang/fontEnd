@@ -3,6 +3,7 @@ import './style.css';
 import React from 'react';
 import Header from './components/Header';
 import Meme from './components/Meme';
+import WindowTarcker from './components/WindowTracker';
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <div>
       <Header />
       <Meme />
+      <WindowTarcker />
     </div>
   );
 }

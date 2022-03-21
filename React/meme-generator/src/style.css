@@ -104,3 +104,8 @@ main {
 .top {
     top: 0;
 }
+
+.window {
+    display: flex;
+    justify-content: center;
+}
