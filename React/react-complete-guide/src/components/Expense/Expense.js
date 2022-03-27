@@ -21,6 +21,19 @@ const Expense = props => {
 
     console.log('selected: ',filteredYear);
 
+    let expensesCount = <p>No expenses found.</p>
+
+    if (filteredExpenses.length > 0) {
+        expensesCount = filteredExpenses.map((expense) => (
+            <ExpenseItem
+                key={expense.id}
+                title={expense.title}
+                amount={expense.amount}
+                date={expense.date}
+            />
+        ))
+    }
+
     return (
         <div>
             <Card className="expenses">
@@ -30,15 +43,22 @@ const Expense = props => {
                     onChangeFilter = {filterChangeHandler}
                 />
 
-                {filteredExpenses.map((expense) => (
-                    <ExpenseItem
-                        key={expense.id}
-                        title={expense.title}
-                        amount={expense.amount}
-                        date={expense.date}
-                    />
-                ))}
+                {/* 
+                    {filteredExpenses.length === 0 ? (
+                        <p>No expenses found.</p>
+                    ) : (
+                        filteredExpenses.map((expense) => (
+                            <ExpenseItem
+                                key={expense.id}
+                                title={expense.title}
+                                amount={expense.amount}
+                                date={expense.date}
+                            />
+                        ))
+                    )} */
+                }
                 
+                {expensesCount}
             </Card>
         </div>
     )
