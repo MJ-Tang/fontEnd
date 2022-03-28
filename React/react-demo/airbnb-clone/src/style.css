@@ -71,6 +71,7 @@ section {
 .card-image {
     width: 100%;
     border-radius: .5rem;
+    margin-bottom: .625rem;
 }
 
 .card-stats {
