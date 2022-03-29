@@ -4,11 +4,22 @@ import CourseGoalItem from "../CourseGoalItem/CourseGoalItem";
 
 import './CourseGoalList.css';
 
-const CourseGoalList = () => {
+const CourseGoalList = props => {
+
     return ( 
-        <div>
-            <CourseGoalItem />
-        </div>
+        <ul className="goal-list">
+            {props.items.map(goal => (
+                <CourseGoalItem
+                    key={goal.id}
+                    id={goal.id}
+                    onDelete={props.onDeleteItem}
+                    // text={goal.text}
+                >
+                    {goal.text}
+                </CourseGoalItem>
+                
+            ))}
+        </ul>
     );
 }
 

@@ -3,10 +3,16 @@ import React from "react";
 import "./CourseGoalItem.css"
 
 const CourseGoalItem = props => {
+
+    const deleteHandler = () => {
+        props.onDelete(props.id)
+    }
+    console.log(props.children);
+
     return (
-        <div>
-            courese goal item
-        </div>
+        <li className="goal-item" onClick={deleteHandler}>
+            {props.children}
+        </li>
     )
 }
 

@@ -14,8 +14,6 @@ function App() {
     ]
   );
 
-
-
   const addGoalHandler = enteredText => {
     console.log('entered text: ',enteredText);
 
@@ -28,16 +26,34 @@ function App() {
     })
   }
 
+  const deleteItemHandler = goalId => {
+    setcourseGoals(prevgoals => {
+      const updateGoals = prevgoals.filter(goal => goal.id !== goalId)
+      return updateGoals;
+    })
+  }
+
+  let countent = (
+    <p style={{ textAlign: 'center' }}>No goals found. Maybe add one?</p>
+  )
+
+  if (courseGoals.length > 0) {
+    countent = (
+      <CourseGoalList items={courseGoals} onDeleteItem={deleteItemHandler} />
+    )
+  }
+
   console.log(courseGoals);
 
   return (
     <div className="App">
+
       <section id='goal-form'>
         <CourseInput onAddGoal={addGoalHandler} />
       </section>
 
       <section id='goals'>
-        <CourseGoalList />
+        {countent}
       </section>
     </div>
   );
