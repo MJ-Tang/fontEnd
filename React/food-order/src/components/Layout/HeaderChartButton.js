@@ -6,7 +6,7 @@ import classes from './HeaderChartButton.module.css'
 
 const HeaderChartButtom = props => {
     return (
-        <button className={classes.button} >
+        <button className={classes.button}  onClick={props.onClick}>
             <span className={classes.icon}>
                 <CartIcon />
             </span>
