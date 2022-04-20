@@ -3,6 +3,8 @@ import Input from '../../Ui/Input';
 import classes from './MealItemForm.module.css'
 
 const MealItemForm = () => {
+    
+
     return (
         <form className={classes.form}>
             <Input label='Amount' input={{
