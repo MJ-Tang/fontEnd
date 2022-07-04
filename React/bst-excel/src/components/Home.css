@@ -1,0 +1,59 @@
+.df {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mt20 {
+    margin-top: 20px;
+}
+.mb20 {
+    margin-top: 20px;
+}
+
+.w80 {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.plr40 {
+    padding: 0 40px;
+}
+.plr20 {
+    padding: 0 20px;
+}
+.mlr40 {
+    margin: 0 40px;
+}
+
+.ml60 {
+    margin-left: 60px;
+}
+.foot {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.tableTop {
+    background-color: rgb(239, 239, 239);
+    padding: 20px 30px;
+}
+.table {
+    border: 1px solid rgb(240, 240, 240);
+    padding: 20px 30px;
+    align-items: center;
+}
+.item {
+    width: 8.5rem;
+}
+
+.item-img {
+    width: 6rem;
+}
+
+.button {
+    color: #fff;
+    border: none;
+    background-color: #1890ff;
+}
