@@ -1,0 +1,10 @@
+.title {
+    font-size: 2.25rem;
+    border-bottom: 1.875rem;
+}
+
+.desc {
+    font-size: .875rem;
+    max-width: 1200px;
+}
+

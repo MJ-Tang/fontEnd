@@ -1,0 +1,19 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    width: 100%;
+    padding: 0 200px;
+    position: fixed;
+    top:0;
+}
+
+.nav a {
+    color: #fff;
+}
+
+.navItem {
+    margin-right: 2.5rem;
+    
+}
