@@ -1,0 +1,30 @@
+.content {
+    margin-top: 20px;
+}
+
+.ddf{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dsf{
+    display: flex;
+}
+
+.form {
+    width: 300px;
+    padding: 20px;
+}
+.ta {
+    text-align: center;
+}
+
+.title {
+    width: 150px;
+    text-align:end;
+    margin-right: 30px;
+}
+
+.dn {
+    display: none;
+}

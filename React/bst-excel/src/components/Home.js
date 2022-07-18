@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import Head from './ui/Header';
 import { AudioOutlined,UploadOutlined } from '@ant-design/icons';
-import { Input, Button, message, Upload } from 'antd';
+import { Input, Button, message, Upload, Pagination } from 'antd';
+import { useHistory } from 'react-router-dom';
 
 import axios from 'axios';
 
@@ -22,30 +23,35 @@ const Home = () => {
         productName: 'macbook'
         }] );
 
-    const [List, setList] = useState([])
     const [isLoading, setIsLoading] = useState(false);
     const [id, setId] = useState('')
+    const [tpage, setTpage] = useState(0)
+    const [page, setPage] = useState(0)
+    const history = useHistory()
+
 
     useEffect(() => {
         setIsLoading(true)
         const fetchData = async () => { 
             const result = await axios({
                 method:'GET',
-                url: 'http://121.196.148.127:8080//api/excel/page',
+                url: 'http://121.196.148.127:8080/api/excel/page',
                 headers: {
                     'Content-Type': 'application/json',
                     'Token': Token
                 },
-                // params: {userName: 'admin'}
+                params: {orderNumber: ''}
             }).then(res => {
-                    console.log(res.data.data.content);
+                    console.log(res);
                     // setList(res.data.data.content)
                     setData(res.data.data.content)
+                    setTpage(res.data.data.totalElements)
+                    setPage(res.data.data.pageable.pageNumber + 1)
                     setIsLoading(false);
                 })
         }
         fetchData();
-        console.log(List);
+
     },[])
     
 
@@ -55,16 +61,72 @@ const Home = () => {
         const id = e.currentTarget.getAttribute('data-name')
         // console.log(e.currentTarget.getAttribute('data-name'));
         console.log(id);
+        // history.push('/details?id='+id)
         
     }
+
+
+    // const props = {
+    //     name: 'file',
+    //     action: 'http://121.196.148.127:8080/api/excel/upload',
+    //     headers: {
+    //         authorization: 'authorization-text',
+    //         'Token': Token
+    //     },
+    //     data: {
+    //         importDate: '202006',
+    //     },
+
+    //     onChange(info) {
+    //         if (info.file.status !== 'uploading') {
+    //             console.log(info.file, info.fileList);
+    //         }
+        
+    //         if (info.file.status === 'done') {
+    //             message.success(`${info.file.name} file uploaded successfully`);
+    //         } else if (info.file.status === 'error') {
+    //             message.error(`${info.file.name} file upload failed.`);
+    //         }
+    //         },
+    //     };
+
+    const onChange = (page) => {
+        const rpage = page 
+        console.log(rpage);
+        setIsLoading(true)
+        const fetchData = async () => { 
+            const result = await axios({
+                method:'GET',
+                url: 'http://121.196.148.127:8080/api/excel/page',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Token': Token
+                },
+                params: {
+                    orderNumber: '',
+                    pageNumber: rpage
+                }
+            }).then(res => {
+                    console.log(res);
+                    // setList(res.data.data.content)
+                    setData(res.data.data.content)
+                    setTpage(res.data.data.totalElements)
+                    setPage(res.data.data.pageable.pageNumber + 1)
+                    setIsLoading(false);
+                })
+        }
+        fetchData();
+
+    }
+
 
     return ( 
         <div>
             <Head />
             <div className='df mt20 mb20 plr40'>
-                <Upload>
+                {/* <Upload {...props}>
                     <Button icon={<UploadOutlined />}>上传文件</Button>
-                </Upload>
+                </Upload> */}
                 <Search placeholder="输入订单号" onSearch={onSearch} enterButton className='ml60' />
             </div>
             <div className='tableTop df mlr40'>
@@ -103,11 +165,22 @@ const Home = () => {
                                 <img src={i.photo} alt="" srcset="" className='item-img' />
                             </div>
                             <div className='item edit'>
-                                <button data-name={i.id} onClick={GetListId} className='button'>编辑</button>
+                                <button data-name={i.id} onClick={GetListId} className='button'>编辑详情</button>
                             </div>
                             
                         </div>
                     ))}
+                    <div className='ddf'>
+                        <Pagination
+                            // current={current}
+                            simple 
+                            defaultCurrent={page} 
+                            total={tpage} 
+                            onChange={onChange}
+                        />
+
+                    </div>
+                    <div className='block'></div>
                 </div>
             )}
         </div>

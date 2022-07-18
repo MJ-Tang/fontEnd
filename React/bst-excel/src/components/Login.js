@@ -48,35 +48,25 @@ const Login = () => {
             .then(res => {
                 console.log(res);
                 let Token = res.data.data.token.replace(/['"]+/g, '')
+                let userType = res.data.data.userDto.type
+                let userName = res.data.data.userDto.userName
+                console.log(userType);
+                console.log(res.data.data.userDto.userName);
                 localStorage.setItem("Token",Token)
+                localStorage.setItem("userType",userType)
+                localStorage.setItem('userName',userName)
                 if (res.data.code === 200) {
-                    history.push('/home')
+                    history.push('/index')
+                    // if (userType == 0) {
+                    //     history.push('/home')
+                    // } else {
+                    //     history.push('/index')
+                    // }
                 }else {
                     // alert('wrong userName or password')
                     console.log('worng');
                 }
             })
-
-        // fetch('http://121.196.148.127:8080/api/login',{
-        //     method: 'POST',
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        //     body: JSON.stringify(use),
-        // })
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         console.log(data)
-        //         localStorage.setItem("Token",JSON.stringify(data.data.token))
-        //         if (data.code === 200) {
-        //             history.push('/home')
-        //         }else {
-        //             // alert('wrong userName or password')
-        //             console.log('worng');
-        //         }
-        //     })
-            
-
     }
 
 
