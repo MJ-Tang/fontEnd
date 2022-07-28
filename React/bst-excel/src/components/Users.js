@@ -27,7 +27,7 @@ const Users = () => {
         const fetchData = async () => {
         axios({
             method:'GET',
-            url: 'http://121.196.148.127:8080/api/user/page',
+            url: 'http://120.48.80.204:8080/api/user/page',
             headers: {
                 'Content-Type': 'application/json',
                 'Token': Token
@@ -52,7 +52,7 @@ const Users = () => {
                 'Content-Type': 'application/json',
                 'Token': Token
             },
-            url: 'http://121.196.148.127:8080/api/user/delete',
+            url: 'http://120.48.80.204:8080/api/user/delete',
             params: {userId:id}
             // params: use
         })

@@ -106,7 +106,7 @@ const CreateDataM = () => {
                     'Content-Type': 'application/json',
                     'token': Token
                 },
-                url: 'http://121.196.148.127:8080/api/excel/add',
+                url: 'http://120.48.80.204:8080/api/excel/add',
                 data: list
             })
                 .then(res => {
@@ -122,7 +122,7 @@ const CreateDataM = () => {
     }   
     const props = {
         name: 'file',
-        action: 'http://121.196.148.127:8080/api/excel/upload/' + newId + '/pic',
+        action: 'http://120.48.80.204:8080/api/excel/upload/' + newId + '/pic',
         headers: {
             authorization: 'authorization-text',
             'Token': Token

@@ -30,7 +30,7 @@ const Details = () => {
         const fetchData = async () => { 
             const result = await axios({
                 method:'GET',
-                url: 'http://121.196.148.127:8080//api/excel/page',
+                url: 'http://120.48.80.204:8080//api/excel/page',
                 headers: {
                     'Content-Type': 'application/json',
                     'Token': Token

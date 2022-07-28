@@ -42,7 +42,7 @@ const Login = () => {
         axios({
             method:'POST',
             headers:{'Content-Type': 'application/json'},
-            url: 'http://121.196.148.127:8080/api/login',
+            url: 'http://120.48.80.204:8080/api/login',
             params: use
         })
             .then(res => {

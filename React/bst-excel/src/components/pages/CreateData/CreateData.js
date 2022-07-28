@@ -103,7 +103,7 @@ const CreateData = () => {
                     'Content-Type': 'application/json',
                     'token': Token
                 },
-                url: 'http://121.196.148.127:8080/api/excel/add',
+                url: 'http://120.48.80.204:8080/api/excel/add',
                 data: list
             })
                 .then(res => {

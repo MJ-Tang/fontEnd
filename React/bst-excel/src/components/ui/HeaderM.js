@@ -23,7 +23,7 @@ const HeadM = () => {
     const logOut = () => {
         axios({
             method:'POST',
-            url: 'http://121.196.148.127:8080/api/logout',
+            url: 'http://120.48.80.204:8080/api/logout',
             headers: {
                 'Content-Type': 'application/json',
                 'Token': Token

@@ -40,7 +40,7 @@ const Index = () => {
             setIsloading(true)
             const result = await axios({
                 method:'GET',
-                url: 'http://121.196.148.127:8080/api/excel/page',
+                url: 'http://120.48.80.204:8080/api/excel/page',
                 headers: {
                     'Content-Type': 'application/json',
                     'Token': Token
@@ -158,7 +158,7 @@ const Index = () => {
 
 
     // const submitImage = () => {
-    //     let url = 'http://121.196.148.127:8080/api/excel/upload/' + listId + '/pic'
+    //     let url = 'http://120.48.80.204:8080/api/excel/upload/' + listId + '/pic'
     //     axios({
     //         method: 'POST',
     //         url: url,
@@ -176,7 +176,7 @@ const Index = () => {
 
     const props = {
         name: 'file',
-        action: 'http://121.196.148.127:8080/api/excel/upload/' + listId + '/pic',
+        action: 'http://120.48.80.204:8080/api/excel/upload/' + listId + '/pic',
         headers: {
             authorization: 'authorization-text',
             'Token': Token
@@ -200,7 +200,7 @@ const Index = () => {
         console.log(list[0].importDate);
         axios({
             method: 'PUT',
-            url: 'http://121.196.148.127:8080/api/excel/update',
+            url: 'http://120.48.80.204:8080/api/excel/update',
             headers: {
                 'Content-Type': 'application/json',
                 'Token': Token

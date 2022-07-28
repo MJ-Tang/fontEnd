@@ -25,7 +25,7 @@ const ImportExcel = () => {
     const props = {
 
         name: 'file',
-        action: 'http://121.196.148.127:8080/api/excel/upload',
+        action: 'http://120.48.80.204:8080/api/excel/upload',
         headers: {
             authorization: 'authorization-text',
             'Token': Token

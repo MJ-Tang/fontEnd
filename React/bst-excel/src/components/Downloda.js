@@ -31,7 +31,7 @@ const Download = () => {
                     'Content-Type': 'application/json',
                     'token': Token
                 },
-                url: 'http://121.196.148.127:8080/api/excel/export',
+                url: 'http://120.48.80.204:8080/api/excel/export',
                 params: {
                     importDate: month
                 }
@@ -57,7 +57,7 @@ const Download = () => {
     //             // 'Access-Control-Allow-Origin': '*',
     //             'token': Token
     //         },
-    //         url: 'http://121.196.148.127:8080/api/excel/download',
+    //         url: 'http://120.48.80.204:8080/api/excel/download',
     //         params: {
     //             'downloadOrder': data
     //         },
@@ -78,7 +78,7 @@ const Download = () => {
                 // 'Access-Control-Allow-Origin': '*',
                 'token': Token
             },
-            url: 'http://121.196.148.127:8080/api/excel/clear',
+            url: 'http://120.48.80.204:8080/api/excel/clear',
             params: {
                 'downloadId': 'downloadId'
             },
